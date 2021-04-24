@@ -4,7 +4,7 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 	def buy_item(self):
-	"""Получает цену товара и перемещает товар в корзину"""
+		"""Получает цену товара и перемещает товар в корзину"""
 		self.product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
 		btn_buy = self.browser.find_element(*ProductPageLocators.BTN_BUY)
 		btn_buy.click()
