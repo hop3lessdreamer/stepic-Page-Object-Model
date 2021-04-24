@@ -13,9 +13,9 @@ class ProductPage(BasePage):
 		"""Получает цену корзины после добавления товара в нее"""
 		return self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
 
-	def check_success_mess_product_added(self):
+	def check_success_mess_product_added(self, product_name):
 		"""Проверяет успешно ли добавлен товар в корзину"""
-		self.success_mess = self.browser.find_element(*ProductPageLocators.NOTE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET)
-		if self.success_mess == 'has been added to your basket.':
+		success_mess = self.browser.find_element(*ProductPageLocators.NOTE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text
+		if success_mess == product_name + ' has been added to your basket.':
 			return True
 		else: return False
