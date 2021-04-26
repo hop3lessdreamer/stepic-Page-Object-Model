@@ -3,10 +3,16 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators():
 	LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+	BASKET_LINK = (By.CSS_SELECTOR, 'a[class="btn btn-default"]')
 
 
 class MainPageLocators():
     pass
+
+
+class BasketPageLocators():
+	FORM_BASKET_PRODUCT = (By.CSS_SELECTOR, 'form.basket_summary') #форма товара в корзине. для проверки есть ли товар в корзине
+	MESS_BASKET_IS_EMPTY = (By.CSS_SELECTOR, '#content_inner p:nth-child(1)')
 
 
 class LoginPageLocators():
