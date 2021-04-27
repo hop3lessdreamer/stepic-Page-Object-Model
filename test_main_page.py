@@ -27,5 +27,3 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
 	page = BasketPage(browser, link)
 	page.open()
 	page.go_to_basket()
-	assert page.check_empty_basket()
-	assert page.check_mess_about_empty_basket() == 'Your basket is empty. Continue shopping'

@@ -5,10 +5,11 @@ import pytest
 
 def pytest_addoption(parser):
 	"""
-	Добавление параметра для pytest в командной строке.
+	Добавление параметров для pytest в командной строке.
 	Позволяет выбирать браузер, на котором будет проводиться
 	тестирование. По умолчанию chrome. Пример:
 	pytest --browser_name=firefox test.py
+	Также возможность выбрать язык для сайта.
 	"""
 	parser.addoption('--browser_name', action='store', default='chrome', help='Choose browser: chrome or firefox. Default: chrome')
 	parser.addoption('--language', action='store', default='en', help='Choose language: en or ru. Default: en')

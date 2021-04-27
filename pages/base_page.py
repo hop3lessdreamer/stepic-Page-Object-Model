@@ -44,6 +44,9 @@ class BasePage():
 			return True
 		return False
 
+	def check_is_not_element_present(self, how, what, timeout=4):
+		assert self.is_not_element_present(how, what)
+
 	def is_disappeared(self, how, what, timeout=4):
 		try:
 			WebDriverWait(self.browser, timeout, 1, TimeoutException).\
@@ -51,6 +54,9 @@ class BasePage():
 		except TimeoutException:
 			return False
 		return True
+
+	def check_is_disappeared(self):
+		assert self.is_disappeared(how, what)
 
 	def go_to_login_page(self):
 		login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -62,6 +68,8 @@ class BasePage():
 	def go_to_basket(self):
 		basket = self.browser.find_element(*BasePageLocators.BASKET_LINK)
 		basket.click()
+		assert self.check_empty_basket(), 'Корзина не пустая'
+		assert self.check_mess_about_empty_basket() == 'Your basket is empty. Continue shopping', 'Корзина не пустая'
 
 	def should_be_authorized_user(self):
 		assert self.is_element_presented(*BasePageLocators.USER_ICON), 'User icon is not presented, probably unauthorised user'
