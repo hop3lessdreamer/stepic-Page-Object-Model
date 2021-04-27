@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
 	LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 	BASKET_LINK = (By.CSS_SELECTOR, 'a[class="btn btn-default"]')
+	USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class MainPageLocators():
@@ -18,6 +19,10 @@ class BasketPageLocators():
 class LoginPageLocators():
 	LOGIN_FORM = (By.ID, 'login_form')
 	REGISTRATION_FORM = (By.ID, 'register_form')
+	REGISTER_EMAIL = (By.ID, 'id_registration-email')
+	REGISTER_PASSWORD = (By.ID, 'id_registration-password1')
+	REGISTER_CONFIRM_PASSWORD = (By.ID, 'id_registration-password2')
+	REGISTER_BTN = (By.CSS_SELECTOR, 'button[name=registration_submit]')
 
 
 class ProductPageLocators():
@@ -25,5 +30,4 @@ class ProductPageLocators():
 	PRODUCT_PRICE = (By.CSS_SELECTOR, 'p.price_color')
 	PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
 	BASKET_PRICE = (By.CSS_SELECTOR, '.alert.alert-info strong')
-	#NOTE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET = (By.CSS_SELECTOR, '.alert-success:nth-child(1)')
 	NOTE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET = (By.XPATH, '/html/body/div[2]/div/div[1]/div[1]/div')
